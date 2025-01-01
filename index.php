@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CRUD com Bootstrap</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body>
     <?php include('navbar.php')?>
@@ -48,10 +49,10 @@
                                     <td><?=$usuario['email']?></td>
                                     <td><?=date('d/m/Y', strtotime($usuario['data_nascimento']))?></td>
                                     <td>
-                                        <a href="usuario-view.php?id=<?=$usuario['id']?>" class="btn btn-secondary btn-sm">Visualizar</a>
-                                        <a href="" class="btn btn-success btn-sm">Editar</a>
-                                        <form action="" method="POST" class="d-inline">
-                                            <button  type="submit" name="delete_usuario" value="1" class="btn btn-danger btn-sm">
+                                        <a href="usuario-view.php?id=<?=$usuario['id']?>" class="btn btn-secondary btn-sm"><span class="bi-eye-fill">&nbsp;</span> Visualizar</a>
+                                        <a href="usuario-edit.php?id=<?=$usuario['id']?>" class="btn btn-success btn-sm"><span class="bi-pencil-fill">&nbsp;Editar</a>
+                                        <form action="acoes.php" method="POST" class="d-inline">
+                                            <button  onclick="return confirm('Tem certeza que deseja excluir?')" type="submit" name="delete_usuario" value="<?=$usuario['id']?>" class="btn btn-danger btn-sm"><span class="bi-trash3-fill">&nbsp;
                                                 Excluir
                                             </button>
                                         </form>
